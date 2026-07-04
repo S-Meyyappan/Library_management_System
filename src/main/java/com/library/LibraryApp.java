@@ -8,6 +8,7 @@ import com.library.model.Book;
 import org.hibernate.SessionFactory;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class LibraryApp {
@@ -21,7 +22,7 @@ public class LibraryApp {
         while (true){
             System.out.println("1. Add a new book");
             System.out.println("2. Find book by Id");
-            System.out.println("3. Get all books");
+            System.out.println("3. Fetch all books");
             System.out.println("4. Update existing book");
             System.out.println("5. Delete a book");
             System.out.println("0. Exit");
@@ -76,6 +77,15 @@ public class LibraryApp {
                         System.out.println("Book found: " + book);
                     } else {
                         System.out.println("Book not found");
+                    }
+                }
+                case 3 -> {
+                    System.out.println("----------------Fetch all books----------------");
+                    List<Book> books = bookController.fetchAllBooks();
+                    if (books != null && !books.isEmpty()) {
+                        books.forEach(System.out::println);
+                    } else {
+                        System.out.println("No books found");
                     }
                 }
             }

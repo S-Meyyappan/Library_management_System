@@ -3,9 +3,13 @@ package com.library.DAO.Impl;
 import com.library.DAO.BookDAO;
 import com.library.config.HbmConfig;
 import com.library.model.Book;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import java.util.List;
 
 public class BookDAOImpl implements BookDAO {
 
@@ -41,6 +45,17 @@ public class BookDAOImpl implements BookDAO {
         try(Session session = sessionFactory.openSession()){
             Book book = session.find(Book.class, id);
             return book;
+        }
+    }
+
+    @Override
+    public List<Book> fetchAllBooks() {
+        Transaction transaction = null;
+
+        try(Session session = sessionFactory.openSession()){
+            Query<Book> query = session.createQuery("from Book",Book.class);
+            List<Book> list = query.getResultList();
+            return list;
         }
     }
 }

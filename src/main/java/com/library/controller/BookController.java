@@ -4,6 +4,8 @@ import com.library.enums.BookStatus;
 import com.library.model.Book;
 import com.library.service.BookService;
 
+import java.util.List;
+
 public class BookController {
 
     BookService bookService = new BookService();
@@ -15,5 +17,9 @@ public class BookController {
 
     public Book findBookById(long id) {
         return bookService.findBookById(id);
+    }
+
+    public List<Book> fetchAllBooks() {
+        return bookService.fetchAllBooks();
     }
 }
