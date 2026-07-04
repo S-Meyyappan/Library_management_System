@@ -10,4 +10,6 @@ public interface BookDAO {
     Book findBookById(long id);
 
     List<Book> fetchAllBooks();
+
+    Book updateBook(Book updateBook);
 }

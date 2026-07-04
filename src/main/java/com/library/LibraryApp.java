@@ -2,6 +2,7 @@ package com.library;
 
 import com.library.config.HbmConfig;
 import com.library.controller.BookController;
+import com.library.enums.BookStatus;
 import com.library.enums.Genre;
 import com.library.model.Author;
 import com.library.model.Book;
@@ -87,6 +88,38 @@ public class LibraryApp {
                     } else {
                         System.out.println("No books found");
                     }
+                }
+                case 4 -> {
+                    System.out.println("----------------Update existing book----------------");
+                    System.out.println("Enter id of the book to update :");
+                    long bookId = in.nextLong();
+                    Book updateBook = bookController.findBookById(bookId);
+                    if(updateBook == null){
+                        System.out.println("Book not found");
+                        continue;
+                    }
+                    System.out.println("Book details:");
+                    System.out.println(updateBook);
+                    System.out.println("-----------------Enter new details-----------------");
+                    System.out.println("Enter title to update :");
+                    in.nextLine();
+                    String title = in.nextLine();
+                    System.out.println("Enter genre to update :");
+                    Arrays.stream(Genre.values()).forEach(System.out::println);
+                    String genre = in.nextLine();
+                    System.out.println("Enter status to update :");
+                    Arrays.stream(BookStatus.values()).forEach(System.out::println);
+                    String status = in.nextLine();
+                    System.out.println("Enter publishedYear to update :");
+                    int publishedYear = in.nextInt();
+
+                    updateBook.setTitle(title);
+                    updateBook.setGenre(Genre.valueOf(genre));
+                    updateBook.setStatus(BookStatus.valueOf(status));
+                    updateBook.setPublicationYear(publishedYear);
+
+                    updateBook = bookController.updateBook(updateBook);
+                    System.out.println("Book updated successfully: " + updateBook);
                 }
             }
 

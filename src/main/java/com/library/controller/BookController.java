@@ -22,4 +22,8 @@ public class BookController {
     public List<Book> fetchAllBooks() {
         return bookService.fetchAllBooks();
     }
+
+    public Book updateBook(Book updateBook) {
+        return bookService.updateBook(updateBook);
+    }
 }

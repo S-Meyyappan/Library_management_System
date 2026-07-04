@@ -58,4 +58,21 @@ public class BookDAOImpl implements BookDAO {
             return list;
         }
     }
+
+    @Override
+    public Book updateBook(Book updateBook) {
+        Transaction transaction = null;
+
+        try(Session session = sessionFactory.openSession()){
+            transaction = session.beginTransaction();
+            session.merge(updateBook);
+            transaction.commit();
+            return session.find(Book.class, updateBook.getId());
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }
