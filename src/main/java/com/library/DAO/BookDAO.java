@@ -4,4 +4,6 @@ import com.library.model.Book;
 
 public interface BookDAO {
     Book addBook(Book book);
+
+    Book findBookById(long id);
 }

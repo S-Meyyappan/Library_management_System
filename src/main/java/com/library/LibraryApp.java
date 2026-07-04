@@ -67,6 +67,17 @@ public class LibraryApp {
                         System.out.println("Failed to add book: " + e.getMessage());
                     }
                 }
+                case 2 -> {
+                    System.out.println("----------------Find book by Id----------------");
+                    System.out.println("Enter book Id :");
+                    long id = in.nextLong();
+                    Book book = bookController.findBookById(id);
+                    if (book != null) {
+                        System.out.println("Book found: " + book);
+                    } else {
+                        System.out.println("Book not found");
+                    }
+                }
             }
 
         }

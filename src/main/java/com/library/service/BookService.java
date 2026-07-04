@@ -11,4 +11,8 @@ public class BookService {
     public Book addBook(Book book) {
         return bookDAO.addBook(book);
     }
+
+    public Book findBookById(long id) {
+        return bookDAO.findBookById(id);
+    }
 }

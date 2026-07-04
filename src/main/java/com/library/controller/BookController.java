@@ -12,4 +12,8 @@ public class BookController {
         book.setStatus(BookStatus.AVAILABLE);
         return bookService.addBook(book);
     }
+
+    public Book findBookById(long id) {
+        return bookService.findBookById(id);
+    }
 }
