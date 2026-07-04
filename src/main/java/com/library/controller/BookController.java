@@ -26,4 +26,8 @@ public class BookController {
     public Book updateBook(Book updateBook) {
         return bookService.updateBook(updateBook);
     }
+
+    public void deleteBook(long id) {
+        bookService.deleteBook(id);
+    }
 }

@@ -75,4 +75,19 @@ public class BookDAOImpl implements BookDAO {
             throw new RuntimeException(e.getMessage());
         }
     }
+
+    @Override
+    public void deleteBook(long id) {
+        Transaction transaction = null;
+
+        try(Session session = sessionFactory.openSession()){
+            transaction = session.beginTransaction();
+            Book book = session.find(Book.class, id);
+            session.remove(book);
+            transaction.commit();
+        } catch (Exception e) {
+
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }

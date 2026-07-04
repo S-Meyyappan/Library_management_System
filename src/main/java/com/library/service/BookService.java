@@ -25,4 +25,8 @@ public class BookService {
     public Book updateBook(Book updateBook) {
         return bookDAO.updateBook(updateBook);
     }
+
+    public void deleteBook(long id) {
+        bookDAO.deleteBook(id);
+    }
 }

@@ -121,6 +121,17 @@ public class LibraryApp {
                     updateBook = bookController.updateBook(updateBook);
                     System.out.println("Book updated successfully: " + updateBook);
                 }
+                case 5 -> {
+                    System.out.println("----------------Delete book----------------");
+                    System.out.println("Enter book id to delete:");
+                    long id = in.nextLong();
+                    try {
+                        bookController.deleteBook(id);
+                        System.out.println("Book deleted successfully");
+                    } catch (Exception e) {
+                        System.out.println("Failed to delete book: " + e.getMessage());
+                    }
+                }
             }
 
         }
