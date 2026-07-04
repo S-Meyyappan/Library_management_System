@@ -28,4 +28,68 @@ public class Book {
     private Member borrowedBy;
 
     private int publicationYear;
+
+    //Getters and Setters
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+    public BookStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(BookStatus status) {
+        this.status = status;
+    }
+
+    public Member getBorrowedBy() {
+        return borrowedBy;
+    }
+
+    public void setBorrowedBy(Member borrowedBy) {
+        this.borrowedBy = borrowedBy;
+    }
+
+    public int getPublicationYear() {
+        return publicationYear;
+    }
+
+    public void setPublicationYear(int publicationYear) {
+        this.publicationYear = publicationYear;
+    }
+
+    //toString()
+    @Override
+    public String toString() {
+        return "Book [id=" + id + ", title=" + title + ", author=" + author + ", genre=" + genre + ", status=" + status + ", borrowedBy=" + borrowedBy + ", publicationYear=" + publicationYear + "]";
+    }
 }

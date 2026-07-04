@@ -1,0 +1,14 @@
+package com.library.service;
+
+import com.library.DAO.BookDAO;
+import com.library.DAO.Impl.BookDAOImpl;
+import com.library.model.Book;
+
+public class BookService {
+
+    BookDAO bookDAO = new BookDAOImpl();
+
+    public Book addBook(Book book) {
+        return bookDAO.addBook(book);
+    }
+}
