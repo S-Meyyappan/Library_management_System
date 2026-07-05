@@ -1,16 +1,10 @@
 package com.library;
 
-import com.library.config.HbmConfig;
 import com.library.controller.BookController;
-import com.library.enums.BookStatus;
-import com.library.enums.Genre;
-import com.library.menu.StudentMenu;
-import com.library.model.Author;
-import com.library.model.Book;
-import org.hibernate.SessionFactory;
+import com.library.menu.AuthorMenu;
+import com.library.menu.BookMenu;
+import com.library.menu.MemberMenu;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class LibraryApp {
@@ -24,9 +18,9 @@ public class LibraryApp {
         while (true) {
             System.out.println("""
             ==== Main Menu ====
-            1. Student
-            2. Course
-            3. Teacher
+            1. Book
+            2. Member
+            3. Author
             0. Exit
             -------------------""");
 
@@ -39,7 +33,9 @@ public class LibraryApp {
             }
 
             switch (choice) {
-                case 1 -> new StudentMenu().displayMenu();
+                case 1 -> new BookMenu().displayMenu();
+                case 2 -> new MemberMenu().displayMenu();
+                case 3 -> new AuthorMenu().displayMenu();
             }
         }
 

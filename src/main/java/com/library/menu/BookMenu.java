@@ -10,14 +10,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class StudentMenu implements Menu {
+public class BookMenu implements Menu {
     @Override
     public void displayMenu() {
         Scanner in = new Scanner(System.in);
 
         BookController bookController = new BookController();
 
-        System.out.println("-------------------Student Menu-------------------");
+        System.out.println("-------------------Book Menu-------------------");
         while (true){
             System.out.println("1. Add a new book");
             System.out.println("2. Find book by Id");
