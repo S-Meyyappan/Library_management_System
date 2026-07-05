@@ -68,6 +68,15 @@ public class MemberMenu implements Menu{
                         System.out.println("Member not found");
                     }
                 }
+                case 3 -> {
+                    System.out.println("----------------Fetch all members----------------");
+                    List<Member> members = memberController.fetchAllBooks();
+                    if (members != null && !members.isEmpty()) {
+                        members.forEach(System.out::println);
+                    } else {
+                        System.out.println("No members found");
+                    }
+                }
 
             }
 

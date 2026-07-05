@@ -3,6 +3,8 @@ package com.library.controller;
 import com.library.model.Member;
 import com.library.service.MemberService;
 
+import java.util.List;
+
 public class MemberController {
     MemberService memberService = new MemberService();
 
@@ -12,5 +14,9 @@ public class MemberController {
 
     public Member findMemberById(long id) {
         return memberService.findMemberById(id);
+    }
+
+    public List<Member> fetchAllBooks() {
+        return memberService.fetchAllMembers();
     }
 }

@@ -3,9 +3,13 @@ package com.library.DAO.Impl;
 import com.library.DAO.MemberDAO;
 import com.library.config.HbmConfig;
 import com.library.model.Member;
+
+import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+
+import java.util.List;
 
 public class MemberDAOImpl implements MemberDAO {
 
@@ -35,6 +39,16 @@ public class MemberDAOImpl implements MemberDAO {
         try(Session session = sessionFactory.openSession()){
             Member member = session.find(Member.class, id);
             return member;
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<Member> findAllMembers() {
+        try(Session session = sessionFactory.openSession()){
+            Query<Member> query = session.createQuery("from Member", Member.class);
+            return query.list();
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }

@@ -4,6 +4,8 @@ import com.library.DAO.Impl.MemberDAOImpl;
 import com.library.DAO.MemberDAO;
 import com.library.model.Member;
 
+import java.util.List;
+
 public class MemberService {
 
     MemberDAO memberDAO = new MemberDAOImpl();
@@ -14,5 +16,9 @@ public class MemberService {
 
     public Member findMemberById(long id) {
         return memberDAO.findMemberById(id);
+    }
+
+    public List<Member> fetchAllMembers() {
+        return memberDAO.findAllMembers();
     }
 }
