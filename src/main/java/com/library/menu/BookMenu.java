@@ -117,8 +117,12 @@ public class BookMenu implements Menu {
                     updateBook.setStatus(BookStatus.valueOf(status));
                     updateBook.setPublicationYear(publishedYear);
 
-                    updateBook = bookController.updateBook(updateBook);
-                    System.out.println("Book updated successfully: " + updateBook);
+                    try {
+                        updateBook = bookController.updateBook(updateBook);
+                        System.out.println("Book updated successfully: " + updateBook);
+                    } catch (Exception e) {
+                        System.out.println("Failed to update book: " + e.getMessage());
+                    }
                 }
                 case 5 -> {
                     System.out.println("----------------Delete book----------------");

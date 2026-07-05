@@ -72,6 +72,34 @@ public class AuthorMenu implements Menu{
                         System.out.println("No authors found");
                     }
                 }
+                case 4 -> {
+                    System.out.println("----------------Update existing author----------------");
+                    System.out.println("Enter id of the author to update :");
+                    long authorId = in.nextLong();
+                    Author updateAuthor = authorController.findAuthorById(authorId);
+                    if (updateAuthor == null) {
+                        System.out.println("Author not found");
+                        continue;
+                    }
+                    System.out.println("Author details:");
+                    System.out.println(updateAuthor);
+                    System.out.println("----------------Enter new author details----------------");
+                    in.nextLine();
+                    System.out.println("Enter name to update: ");
+                    String name = in.nextLine();
+                    System.out.println("Enter country to update: ");
+                    String country = in.nextLine();
+
+                    updateAuthor.setName(name);
+                    updateAuthor.setCountry(country);
+
+                    try {
+                        updateAuthor = authorController.updateAuthor(updateAuthor);
+                        System.out.println("Author updated successfully: " + updateAuthor);
+                    } catch (Exception e) {
+                        System.out.println("Failed to update author: " + e.getMessage());
+                    }
+                }
 
             }
 

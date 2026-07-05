@@ -21,4 +21,8 @@ public class AuthorService {
     public List<Author> fetchAllAuthors() {
         return authorDAO.fetchAllAuthors();
     }
+
+    public Author updateAuthor(Author updateAuthor) {
+        return authorDAO.updateAuthor(updateAuthor);
+    }
 }

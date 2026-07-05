@@ -20,4 +20,8 @@ public class AuthorController {
     public List<Author> fetchAllAuthors() {
         return authorService.fetchAllAuthors();
     }
+
+    public Author updateAuthor(Author updateAuthor) {
+        return authorService.updateAuthor(updateAuthor);
+    }
 }

@@ -52,4 +52,19 @@ public class AuthorDAOImpl implements AuthorDAO {
             throw new RuntimeException(e.getMessage());
         }
     }
+
+    @Override
+    public Author updateAuthor(Author updateAuthor) {
+        Transaction transaction = null;
+        try(Session session = sessionFactory.openSession()){
+            transaction = session.beginTransaction();;
+            session.merge(updateAuthor);
+            transaction.commit();
+            return updateAuthor;
+        } catch (Exception e) {
+            if(transaction != null)
+                transaction.rollback();
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }

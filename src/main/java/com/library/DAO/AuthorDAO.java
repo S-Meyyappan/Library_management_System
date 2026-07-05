@@ -10,4 +10,6 @@ public interface AuthorDAO {
     Author findAuthorById(long id);
 
     List<Author> fetchAllAuthors();
+
+    Author updateAuthor(Author updateAuthor);
 }

@@ -102,8 +102,12 @@ public class MemberMenu implements Menu{
                     updateMember.setMemberType(MemberType.valueOf(memberType));
                     updateMember.setEmail(email);
 
-                    updateMember = memberController.updateBook(updateMember);
-                    System.out.println("Book updated successfully: " + updateMember);
+                    try {
+                        updateMember = memberController.updateBook(updateMember);
+                        System.out.println("Member updated successfully: " + updateMember);
+                    } catch (Exception e) {
+                        System.out.println("Failed to update member: " + e.getMessage());
+                    }
                 }
                 case 5 -> {
                     System.out.println("----------------Delete member----------------");
