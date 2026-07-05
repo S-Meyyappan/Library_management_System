@@ -100,7 +100,17 @@ public class AuthorMenu implements Menu{
                         System.out.println("Failed to update author: " + e.getMessage());
                     }
                 }
-
+                case 5 -> {
+                    System.out.println("----------------Delete author----------------");
+                    System.out.println("Enter author id to delete:");
+                    long id = in.nextLong();
+                    try {
+                        authorController.deleteAuthor(id);
+                        System.out.println("Author deleted successfully");
+                    } catch (Exception e) {
+                        System.out.println("Failed to delete author: " + e.getMessage());
+                    }
+                }
             }
 
         }

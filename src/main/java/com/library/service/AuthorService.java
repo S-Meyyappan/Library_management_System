@@ -25,4 +25,8 @@ public class AuthorService {
     public Author updateAuthor(Author updateAuthor) {
         return authorDAO.updateAuthor(updateAuthor);
     }
+
+    public void deleteAuthor(long id) {
+        authorDAO.deleteAuthor(id);
+    }
 }

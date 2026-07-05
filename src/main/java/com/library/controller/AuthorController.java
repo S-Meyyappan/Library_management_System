@@ -24,4 +24,8 @@ public class AuthorController {
     public Author updateAuthor(Author updateAuthor) {
         return authorService.updateAuthor(updateAuthor);
     }
+
+    public void deleteAuthor(long id) {
+        authorService.deleteAuthor(id);
+    }
 }

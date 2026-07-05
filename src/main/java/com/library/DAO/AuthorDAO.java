@@ -12,4 +12,6 @@ public interface AuthorDAO {
     List<Author> fetchAllAuthors();
 
     Author updateAuthor(Author updateAuthor);
+
+    void deleteAuthor(long id);
 }
