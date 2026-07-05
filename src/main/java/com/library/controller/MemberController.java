@@ -9,4 +9,8 @@ public class MemberController {
     public Member addMember(Member member) {
         return memberService.addMember(member);
     }
+
+    public Member findMemberById(long id) {
+        return memberService.findMemberById(id);
+    }
 }

@@ -31,7 +31,7 @@ public class BookMenu implements Menu {
             int choice = in.nextInt();
 
             if(choice == 0){
-                System.out.println("Exiting...");
+                System.out.println("Going to main menu...");
                 return;
             }
 

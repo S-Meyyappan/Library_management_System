@@ -29,7 +29,7 @@ public class MemberMenu implements Menu{
             int choice = in.nextInt();
 
             if(choice == 0){
-                System.out.println("Exiting...");
+                System.out.println("Going to main menu...");
                 return;
             }
 
@@ -57,6 +57,18 @@ public class MemberMenu implements Menu{
                         System.out.println("Failed to add Member: " + e.getMessage());
                     }
                 }
+                case 2 -> {
+                    System.out.println("----------------Find Member by Id----------------");
+                    System.out.println("Enter member Id :");
+                    long id = in.nextLong();
+                    Member member = memberController.findMemberById(id);
+                    if (member != null) {
+                        System.out.println("Member found: " + member);
+                    } else {
+                        System.out.println("Member not found");
+                    }
+                }
+
             }
 
         }

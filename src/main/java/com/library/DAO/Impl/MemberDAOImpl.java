@@ -29,4 +29,14 @@ public class MemberDAOImpl implements MemberDAO {
             throw new RuntimeException(e.getMessage());
         }
     }
+
+    @Override
+    public Member findMemberById(long id) {
+        try(Session session = sessionFactory.openSession()){
+            Member member = session.find(Member.class, id);
+            return member;
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }

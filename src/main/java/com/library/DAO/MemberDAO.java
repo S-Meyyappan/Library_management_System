@@ -4,4 +4,6 @@ import com.library.model.Member;
 
 public interface MemberDAO {
     Member addMember(Member member);
+
+    Member findMemberById(long id);
 }

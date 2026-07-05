@@ -11,4 +11,8 @@ public class MemberService {
     public Member addMember(Member member) {
         return memberDAO.addMember(member);
     }
+
+    public Member findMemberById(long id) {
+        return memberDAO.findMemberById(id);
+    }
 }
