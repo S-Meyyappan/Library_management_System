@@ -1,0 +1,14 @@
+package com.library.service;
+
+import com.library.DAO.AuthorDAO;
+import com.library.DAO.Impl.AuthorDAOImpl;
+import com.library.model.Author;
+
+public class AuthorService {
+
+    AuthorDAO authorDAO = new AuthorDAOImpl();
+
+    public Author addAuthor(Author author) {
+        return authorDAO.addAuthor(author);
+    }
+}
