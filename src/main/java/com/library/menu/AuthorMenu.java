@@ -59,6 +59,7 @@ public class AuthorMenu implements Menu{
                     Author author = authorController.findAuthorById(id);
                     if (author != null) {
                         System.out.println("Author found: " + author);
+                        System.out.println("---------------------------------------------------");
                     } else {
                         System.out.println("Author not found");
                     }
@@ -68,6 +69,7 @@ public class AuthorMenu implements Menu{
                     List<Author> authors = authorController.fetchAllAuthors();
                     if (authors != null && !authors.isEmpty()) {
                         authors.forEach(System.out::println);
+                        System.out.println("---------------------------------------------------");
                     } else {
                         System.out.println("No authors found");
                     }

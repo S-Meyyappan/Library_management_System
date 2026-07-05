@@ -14,4 +14,6 @@ public interface BookDAO {
     Book updateBook(Book updateBook);
 
     void deleteBook(long id);
+
+    List<Book> getBooksByAuthor(long authorId);
 }

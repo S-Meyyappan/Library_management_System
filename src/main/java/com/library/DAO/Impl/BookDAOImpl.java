@@ -90,4 +90,15 @@ public class BookDAOImpl implements BookDAO {
             throw new RuntimeException(e.getMessage());
         }
     }
+
+    @Override
+    public List<Book> getBooksByAuthor(long authorId) {
+        try(Session session = sessionFactory.openSession()){
+            //HQL Implementation
+            Query<Book> query = session.createQuery("from Book b where b.author.id = :authorId",Book.class);
+            query.setParameter("authorId",authorId);
+            List<Book> list = query.getResultList();
+            return list;
+        }
+    }
 }

@@ -30,4 +30,8 @@ public class BookController {
     public void deleteBook(long id) {
         bookService.deleteBook(id);
     }
+
+    public List<Book> getBooksByAuthor(long authorId) {
+        return bookService.getBooksByAuthor(authorId);
+    }
 }

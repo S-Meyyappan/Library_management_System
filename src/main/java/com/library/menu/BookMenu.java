@@ -24,6 +24,7 @@ public class BookMenu implements Menu {
             System.out.println("3. Fetch all books");
             System.out.println("4. Update existing book");
             System.out.println("5. Delete a book");
+            System.out.println("6. Fetch all books by author");
             System.out.println("0. Go Back");
             System.out.println("----------------------------------------------");
 
@@ -75,6 +76,7 @@ public class BookMenu implements Menu {
                     Book book = bookController.findBookById(id);
                     if (book != null) {
                         System.out.println("Book found: " + book);
+                        System.out.println("---------------------------------------------------");
                     } else {
                         System.out.println("Book not found");
                     }
@@ -84,6 +86,7 @@ public class BookMenu implements Menu {
                     List<Book> books = bookController.fetchAllBooks();
                     if (books != null && !books.isEmpty()) {
                         books.forEach(System.out::println);
+                        System.out.println("---------------------------------------------------");
                     } else {
                         System.out.println("No books found");
                     }
@@ -133,6 +136,18 @@ public class BookMenu implements Menu {
                         System.out.println("Book deleted successfully");
                     } catch (Exception e) {
                         System.out.println("Failed to delete book: " + e.getMessage());
+                    }
+                }
+                case 6 -> {
+                    System.out.println("----------------FInd Books by Author----------------");
+                    System.out.println("Enter author Id:");
+                    long authorId = in.nextLong();
+                    List<Book> books = bookController.getBooksByAuthor(authorId);
+                    if(books != null && !books.isEmpty()){
+                        books.forEach(System.out::println);
+                        System.out.println("---------------------------------------------------");
+                    }else{
+                        System.out.println("No books found");
                     }
                 }
             }
