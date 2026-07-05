@@ -94,11 +94,27 @@ public class BookDAOImpl implements BookDAO {
     @Override
     public List<Book> getBooksByAuthor(long authorId) {
         try(Session session = sessionFactory.openSession()){
-            //HQL Implementation
-            Query<Book> query = session.createQuery("from Book b where b.author.id = :authorId",Book.class);
+            //JPQL Implementation
+            // Explicit Join Query
+            Query<Book> query = session.createQuery("select b from Book b join b.author a where a.id = :authorId",Book.class);
             query.setParameter("authorId",authorId);
             List<Book> list = query.getResultList();
             return list;
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<Book> getBooksByBorrower(long borrowerId) {
+        try(Session session = sessionFactory.openSession()){
+            //HQL Implementation
+            Query<Book> query = session.createQuery("from Book b where b.borrower.id = :borrowerId",Book.class);
+            query.setParameter("borrowerId",borrowerId);
+            List<Book> list = query.getResultList();
+            return list;
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
         }
     }
 }

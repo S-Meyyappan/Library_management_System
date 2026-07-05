@@ -25,6 +25,7 @@ public class BookMenu implements Menu {
             System.out.println("4. Update existing book");
             System.out.println("5. Delete a book");
             System.out.println("6. Fetch all books by author");
+            System.out.println("7. Fetch all books by borrower");
             System.out.println("0. Go Back");
             System.out.println("----------------------------------------------");
 
@@ -144,6 +145,18 @@ public class BookMenu implements Menu {
                     long authorId = in.nextLong();
                     List<Book> books = bookController.getBooksByAuthor(authorId);
                     if(books != null && !books.isEmpty()){
+                        books.forEach(System.out::println);
+                        System.out.println("---------------------------------------------------");
+                    }else{
+                        System.out.println("No books found");
+                    }
+                }
+                case 7 -> {
+                    System.out.println("----------------Fetch all books by borrower----------------");
+                    System.out.println("Enter borrower id :");
+                    long borrowerId = in.nextLong();
+                    List<Book> books = bookController.getBooksByBorrower(borrowerId);
+                    if(!books.isEmpty()){
                         books.forEach(System.out::println);
                         System.out.println("---------------------------------------------------");
                     }else{

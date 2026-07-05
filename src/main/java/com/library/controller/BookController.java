@@ -34,4 +34,8 @@ public class BookController {
     public List<Book> getBooksByAuthor(long authorId) {
         return bookService.getBooksByAuthor(authorId);
     }
+
+    public List<Book> getBooksByBorrower(long borrowerId) {
+        return bookService.getBooksByBorrower(borrowerId);
+    }
 }

@@ -25,7 +25,7 @@ public class Book {
     private BookStatus status;
 
     @ManyToOne
-    private Member borrowedBy;
+    private Member borrower;
 
     private int publicationYear;
 
@@ -71,12 +71,12 @@ public class Book {
         this.status = status;
     }
 
-    public Member getBorrowedBy() {
-        return borrowedBy;
+    public Member getBorrower() {
+        return borrower;
     }
 
-    public void setBorrowedBy(Member borrowedBy) {
-        this.borrowedBy = borrowedBy;
+    public void setBorrower(Member borrower) {
+        this.borrower = borrower;
     }
 
     public int getPublicationYear() {
@@ -90,6 +90,6 @@ public class Book {
     //toString()
     @Override
     public String toString() {
-        return "Book [id=" + id + ", title=" + title + ", author=" + author + ", genre=" + genre + ", status=" + status + ", borrowedBy=" + borrowedBy + ", publicationYear=" + publicationYear + "]";
+        return "Book [id=" + id + ", title=" + title + ", author=" + author + ", genre=" + genre + ", status=" + status + ", borrower=" + borrower + ", publicationYear=" + publicationYear + "]";
     }
 }

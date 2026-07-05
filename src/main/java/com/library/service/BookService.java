@@ -33,4 +33,8 @@ public class BookService {
     public List<Book> getBooksByAuthor(long authorId) {
         return bookDAO.getBooksByAuthor(authorId);
     }
+
+    public List<Book> getBooksByBorrower(long borrowerId) {
+        return bookDAO.getBooksByBorrower(borrowerId);
+    }
 }
