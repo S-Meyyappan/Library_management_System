@@ -82,7 +82,7 @@ public class MemberMenu implements Menu{
                     System.out.println("Enter id of the book to update :");
                     long memberId = in.nextLong();
                     Member updateMember = memberController.findMemberById(memberId);
-                    if(updateMember == null){
+                    if (updateMember == null) {
                         System.out.println("Member not found");
                         continue;
                     }
@@ -104,6 +104,17 @@ public class MemberMenu implements Menu{
 
                     updateMember = memberController.updateBook(updateMember);
                     System.out.println("Book updated successfully: " + updateMember);
+                }
+                case 5 -> {
+                    System.out.println("----------------Delete member----------------");
+                    System.out.println("Enter member id to delete:");
+                    long id = in.nextLong();
+                    try {
+                        memberController.deleteMember(id);
+                        System.out.println("Member deleted successfully");
+                    } catch (Exception e) {
+                        System.out.println("Failed to delete member: " + e.getMessage());
+                    }
                 }
             }
 

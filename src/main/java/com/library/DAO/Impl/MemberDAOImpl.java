@@ -68,4 +68,19 @@ public class MemberDAOImpl implements MemberDAO {
             throw new RuntimeException(e.getMessage());
         }
     }
+
+    @Override
+    public void deleteMember(long id) {
+        Transaction transaction = null;
+        try(Session session = sessionFactory.openSession()){
+            transaction = session.beginTransaction();
+            Member member = session.find(Member.class, id);
+            session.remove(member);
+            transaction.commit();
+        } catch (Exception e) {
+            if(transaction != null)
+                transaction.rollback();
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }

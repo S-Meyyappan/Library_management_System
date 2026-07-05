@@ -23,4 +23,8 @@ public class MemberController {
     public Member updateBook(Member updateMember) {
         return memberService.updateMember(updateMember);
     }
+
+    public void deleteMember(long id) {
+        memberService.deleteMember(id);
+    }
 }

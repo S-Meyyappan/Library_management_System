@@ -12,4 +12,6 @@ public interface MemberDAO {
     List<Member> findAllMembers();
 
     Member updateMember(Member updateMember);
+
+    void deleteMember(long id);
 }

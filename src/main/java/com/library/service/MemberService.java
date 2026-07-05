@@ -25,4 +25,8 @@ public class MemberService {
     public Member updateMember(Member updateMember) {
         return memberDAO.updateMember(updateMember);
     }
+
+    public void deleteMember(long id) {
+        memberDAO.deleteMember(id);
+    }
 }
