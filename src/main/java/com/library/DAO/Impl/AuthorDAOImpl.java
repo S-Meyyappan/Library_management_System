@@ -29,4 +29,14 @@ public class AuthorDAOImpl implements AuthorDAO {
             throw new RuntimeException(e.getMessage());
         }
     }
+
+    @Override
+    public Author findAuthorById(long id) {
+        try(Session session = sessionFactory.openSession()){
+            Author author = session.find(Author.class,id);
+            return author;
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }

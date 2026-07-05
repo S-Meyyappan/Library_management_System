@@ -10,4 +10,8 @@ public class AuthorController {
     public Author addAuthor(Author author) {
         return authorService.addAuthor(author);
     }
+
+    public Author findAuthorById(long id) {
+        return authorService.findAuthorById(id);
+    }
 }

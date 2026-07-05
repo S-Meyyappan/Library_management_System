@@ -11,4 +11,8 @@ public class AuthorService {
     public Author addAuthor(Author author) {
         return authorDAO.addAuthor(author);
     }
+
+    public Author findAuthorById(long id) {
+        return authorDAO.findAuthorById(id);
+    }
 }

@@ -55,6 +55,17 @@ public class AuthorMenu implements Menu{
                         System.out.println("Failed to add Author: " + e.getMessage());
                     }
                 }
+                case 2 -> {
+                    System.out.println("----------------Find Author by Id----------------");
+                    System.out.println("Enter author Id :");
+                    long id = in.nextLong();
+                    Author author = authorController.findAuthorById(id);
+                    if (author != null) {
+                        System.out.println("Author found: " + author);
+                    } else {
+                        System.out.println("Author not found");
+                    }
+                }
 
             }
 

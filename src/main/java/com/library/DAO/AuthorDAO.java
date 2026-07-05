@@ -4,4 +4,6 @@ import com.library.model.Author;
 
 public interface AuthorDAO {
     Author addAuthor(Author author);
+
+    Author findAuthorById(long id);
 }
