@@ -2,6 +2,8 @@ package com.library.service;
 
 import com.library.DAO.BookDAO;
 import com.library.DAO.Impl.BookDAOImpl;
+import com.library.enums.BookStatus;
+import com.library.enums.Genre;
 import com.library.model.Book;
 
 import java.util.List;
@@ -36,5 +38,9 @@ public class BookService {
 
     public List<Book> getBooksByBorrower(long borrowerId) {
         return bookDAO.getBooksByBorrower(borrowerId);
+    }
+
+    public List<Book> getBooksByGenreAndStatus(Genre genre, BookStatus bookStatus) {
+        return bookDAO.getBooksByGenreAndStatus(genre, bookStatus);
     }
 }

@@ -9,11 +9,11 @@ import java.util.Scanner;
 
 public class LibraryApp {
     public static void main(String[] args) {
-        System.out.println("----------------------Library Management System----------------------");
-
         Scanner in = new Scanner(System.in);
 
         BookController bookController = new BookController();
+
+        System.out.println("----------------------Library Management System----------------------");
 
         while (true) {
             System.out.println("""
@@ -38,7 +38,5 @@ public class LibraryApp {
                 case 3 -> new AuthorMenu().displayMenu();
             }
         }
-
-
     }
 }

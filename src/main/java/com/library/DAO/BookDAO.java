@@ -1,5 +1,7 @@
 package com.library.DAO;
 
+import com.library.enums.BookStatus;
+import com.library.enums.Genre;
 import com.library.model.Book;
 
 import java.util.List;
@@ -18,4 +20,6 @@ public interface BookDAO {
     List<Book> getBooksByAuthor(long authorId);
 
     List<Book> getBooksByBorrower(long borrowerId);
+
+    List<Book> getBooksByGenreAndStatus(Genre genre, BookStatus bookStatus);
 }

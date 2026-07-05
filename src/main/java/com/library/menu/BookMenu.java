@@ -26,6 +26,7 @@ public class BookMenu implements Menu {
             System.out.println("5. Delete a book");
             System.out.println("6. Fetch all books by author");
             System.out.println("7. Fetch all books by borrower");
+            System.out.println("8. Fetch all books by genre / status");
             System.out.println("0. Go Back");
             System.out.println("----------------------------------------------");
 
@@ -156,6 +157,39 @@ public class BookMenu implements Menu {
                     System.out.println("Enter borrower id :");
                     long borrowerId = in.nextLong();
                     List<Book> books = bookController.getBooksByBorrower(borrowerId);
+                    if(!books.isEmpty()){
+                        books.forEach(System.out::println);
+                        System.out.println("---------------------------------------------------");
+                    }else{
+                        System.out.println("No books found");
+                    }
+                }
+                case 8 -> {
+                    System.out.println("----------------Fetch books by genre / status----------------");
+                    System.out.println("Enter the genre :");
+                    Arrays.stream(Genre.values()).forEach(System.out::println);
+                    in.nextLine();
+                    String genre = in.nextLine();
+                    System.out.println("Enter the status :");
+                    Arrays.asList(BookStatus.values()).forEach(System.out::println);
+                    String status = in.nextLine();
+                    // Declare variables
+                    Genre selectedGenre;
+                    BookStatus selectedStatus;
+                    // Check if the genre is in enum or pass null
+                    try{
+                        selectedGenre= Genre.valueOf(genre);
+                    }catch(Exception e){
+                        selectedGenre = null;
+                    }
+                    try{
+                        selectedStatus = BookStatus.valueOf(status);
+                    }catch(Exception e){
+                        selectedStatus = null;
+                    }
+                    // Function call
+                    List<Book> books = bookController.getBooksByGenreAndStatus(selectedGenre, selectedStatus);
+                    // Result list
                     if(!books.isEmpty()){
                         books.forEach(System.out::println);
                         System.out.println("---------------------------------------------------");

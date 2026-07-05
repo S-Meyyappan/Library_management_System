@@ -1,6 +1,7 @@
 package com.library.controller;
 
 import com.library.enums.BookStatus;
+import com.library.enums.Genre;
 import com.library.model.Book;
 import com.library.service.BookService;
 
@@ -37,5 +38,9 @@ public class BookController {
 
     public List<Book> getBooksByBorrower(long borrowerId) {
         return bookService.getBooksByBorrower(borrowerId);
+    }
+
+    public List<Book> getBooksByGenreAndStatus(Genre genre, BookStatus bookStatus) {
+        return bookService.getBooksByGenreAndStatus(genre, bookStatus);
     }
 }
