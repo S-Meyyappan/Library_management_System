@@ -21,4 +21,8 @@ public class MemberService {
     public List<Member> fetchAllMembers() {
         return memberDAO.findAllMembers();
     }
+
+    public Member updateMember(Member updateMember) {
+        return memberDAO.updateMember(updateMember);
+    }
 }

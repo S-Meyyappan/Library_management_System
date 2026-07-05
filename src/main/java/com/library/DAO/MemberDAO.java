@@ -10,4 +10,6 @@ public interface MemberDAO {
     Member findMemberById(long id);
 
     List<Member> findAllMembers();
+
+    Member updateMember(Member updateMember);
 }

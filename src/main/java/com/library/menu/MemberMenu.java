@@ -77,7 +77,34 @@ public class MemberMenu implements Menu{
                         System.out.println("No members found");
                     }
                 }
+                case 4 -> {
+                    System.out.println("----------------Update existing book----------------");
+                    System.out.println("Enter id of the book to update :");
+                    long memberId = in.nextLong();
+                    Member updateMember = memberController.findMemberById(memberId);
+                    if(updateMember == null){
+                        System.out.println("Member not found");
+                        continue;
+                    }
+                    System.out.println("Member details:");
+                    System.out.println(updateMember);
+                    System.out.println("----------------Enter new member details----------------");
+                    in.nextLine();
+                    System.out.println("Enter name to update: ");
+                    String name = in.nextLine();
+                    System.out.println("Enter email to update: ");
+                    String email = in.nextLine();
+                    System.out.println("Enter Membership Type to update:");
+                    Arrays.stream(MemberType.values()).forEach(System.out::println);
+                    String memberType = in.nextLine();
 
+                    updateMember.setName(name);
+                    updateMember.setMemberType(MemberType.valueOf(memberType));
+                    updateMember.setEmail(email);
+
+                    updateMember = memberController.updateBook(updateMember);
+                    System.out.println("Book updated successfully: " + updateMember);
+                }
             }
 
         }

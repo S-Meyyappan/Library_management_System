@@ -19,4 +19,8 @@ public class MemberController {
     public List<Member> fetchAllBooks() {
         return memberService.fetchAllMembers();
     }
+
+    public Member updateBook(Member updateMember) {
+        return memberService.updateMember(updateMember);
+    }
 }
