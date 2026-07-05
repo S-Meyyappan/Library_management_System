@@ -1,12 +1,9 @@
 package com.library.menu;
 
 import com.library.controller.AuthorController;
-import com.library.controller.MemberController;
-import com.library.enums.MemberType;
 import com.library.model.Author;
 import com.library.model.Member;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -64,6 +61,15 @@ public class AuthorMenu implements Menu{
                         System.out.println("Author found: " + author);
                     } else {
                         System.out.println("Author not found");
+                    }
+                }
+                case 3 -> {
+                    System.out.println("----------------Fetch all authors----------------");
+                    List<Author> authors = authorController.fetchAllAuthors();
+                    if (authors != null && !authors.isEmpty()) {
+                        authors.forEach(System.out::println);
+                    } else {
+                        System.out.println("No authors found");
                     }
                 }
 

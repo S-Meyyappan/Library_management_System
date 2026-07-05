@@ -6,6 +6,9 @@ import com.library.model.Author;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import java.util.List;
 
 public class AuthorDAOImpl implements AuthorDAO {
 
@@ -35,6 +38,16 @@ public class AuthorDAOImpl implements AuthorDAO {
         try(Session session = sessionFactory.openSession()){
             Author author = session.find(Author.class,id);
             return author;
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<Author> fetchAllAuthors() {
+        try(Session session = sessionFactory.openSession()){
+            Query<Author> query = session.createQuery("from Author", Author.class);
+            return query.getResultList();
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
