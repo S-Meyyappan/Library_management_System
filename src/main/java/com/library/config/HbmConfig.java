@@ -1,10 +1,7 @@
 package com.library.config;
 
-import com.library.model.Author;
-import com.library.model.Book;
-import com.library.model.Member;
+import com.library.model.*;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.BootstrapServiceRegistryBuilder;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.AvailableSettings;
@@ -25,6 +22,8 @@ public class HbmConfig {
             configuration.addAnnotatedClass(Book.class);
             configuration.addAnnotatedClass(Member.class);
             configuration.addAnnotatedClass(Author.class);
+            configuration.addAnnotatedClass(LibraryEvent.class);
+            configuration.addAnnotatedClass(EventRegistration.class);
 
             //Step 2 : Create ServiceRegistry
             StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()

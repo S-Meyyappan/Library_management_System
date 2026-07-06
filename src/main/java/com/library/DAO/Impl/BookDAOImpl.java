@@ -103,7 +103,10 @@ public class BookDAOImpl implements BookDAO {
         try(Session session = sessionFactory.openSession()){
             //JPQL Implementation
             // Explicit Join Query
-            Query<Book> query = session.createQuery("select b from Book b join b.author a where a.id = :authorId",Book.class);
+            Query<Book> query = session.createQuery("select b"+
+                                                        "from Book b"+
+                                                        "join b.author a"+
+                                                        "where a.id = :authorId",Book.class);
             query.setParameter("authorId",authorId);
             List<Book> list = query.getResultList();
             return list;
