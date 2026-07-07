@@ -19,6 +19,16 @@ public class EventRegistrationDAOImpl implements EventRegistrationDAO {
         sessionFactory = HbmConfig.getSessionFactory();
     }
 
+    @Override
+    public EventRegistration findEventById(long eventId) {
+        try(Session session = sessionFactory.openSession()){
+            EventRegistration eventRegistration = session.find(EventRegistration.class,eventId);
+            return eventRegistration;
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
 
     @Override
     public List<Member> findNoShowMembers(long eventId) {

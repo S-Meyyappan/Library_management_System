@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface EventRegistrationDAO {
 
+    EventRegistration findEventById(long eventId);
+
     List<Member> findNoShowMembers(long eventId);
 
 }

@@ -11,7 +11,12 @@ public class EventRegistrationService {
 
     EventRegistrationDAO eventRegistrationDAO = new EventRegistrationDAOImpl();
 
+    public EventRegistration findEventById(long eventId) {
+        return eventRegistrationDAO.findEventById(eventId);
+    }
+
     public List<Member> findNoShowMembers(long eventId) {
         return eventRegistrationDAO.findNoShowMembers(eventId);
     }
+
 }
