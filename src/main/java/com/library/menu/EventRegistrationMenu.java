@@ -18,7 +18,7 @@ public class EventRegistrationMenu {
 
         System.out.println("-------------------Event Registration Menu-------------------");
         while (true){
-            System.out.println("1. Find EventRegistration by Id");
+            System.out.println("1. Find EventRegistration for a Event");
             System.out.println("2. Find No Shows for the Event ");
             System.out.println("0. Go Back");
             System.out.println("----------------------------------------------");
@@ -33,14 +33,14 @@ public class EventRegistrationMenu {
 
             switch (choice){
                 case 1 -> {
-                    System.out.println("----------------Find EventRegistration by Id----------------");
-                    System.out.println("Enter EventRegistration Id: ");
+                    System.out.println("----------------Find EventRegistrations----------------");
+                    System.out.println("Enter Event Id: ");
                     long eventId = in.nextLong();
-                    EventRegistration eventRegistration = eventRegistrationController.findEventById(eventId);
-                    if(eventRegistration == null){
-                        System.out.println("Event not found");
+                    List<EventRegistration> eventRegistrations = eventRegistrationController.findEventRegistrationsById(eventId);
+                    if(eventRegistrations.isEmpty()){
+                        System.out.println("No Event Registrations Found");
                     } else {
-                        System.out.println(eventRegistration);
+                        eventRegistrations.forEach(System.out::println);
                     }
                     System.out.println("----------------------------------------------");
                 }
@@ -51,7 +51,7 @@ public class EventRegistrationMenu {
                     long eventId = in.nextLong();
                     List<Member> members = eventRegistrationController.findNoShowMembers(eventId);
                     if(members.isEmpty()){
-                        System.out.println("No members found. All attended the event");
+                        System.out.println("No members found.");
                     } else {
                         members.forEach(System.out::println);
                     }

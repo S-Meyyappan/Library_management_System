@@ -10,8 +10,8 @@ public class EventRegistrationController {
 
     EventRegistrationService eventRegistrationService = new EventRegistrationService();
 
-    public EventRegistration findEventById(long eventId) {
-        return eventRegistrationService.findEventById(eventId);
+    public List<EventRegistration> findEventRegistrationsById(long eventId) {
+        return eventRegistrationService.findEventRegistrationsById(eventId);
     }
 
     public List<Member> findNoShowMembers(long eventId) {

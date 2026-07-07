@@ -20,10 +20,17 @@ public class EventRegistrationDAOImpl implements EventRegistrationDAO {
     }
 
     @Override
-    public EventRegistration findEventById(long eventId) {
+    public List<EventRegistration> findEventRegistrationsById(long eventId) {
         try(Session session = sessionFactory.openSession()){
-            EventRegistration eventRegistration = session.find(EventRegistration.class,eventId);
-            return eventRegistration;
+            String jpql = """
+                    select er
+                    from EventRegistration er
+                    where er.libraryEvent.id = :eventId
+                    """;
+            Query<EventRegistration> query = session.createQuery(jpql, EventRegistration.class);
+            query.setParameter("eventId",eventId);
+            List<EventRegistration> list = query.getResultList();
+            return list;
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
