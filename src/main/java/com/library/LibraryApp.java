@@ -3,6 +3,7 @@ package com.library;
 import com.library.controller.BookController;
 import com.library.menu.AuthorMenu;
 import com.library.menu.BookMenu;
+import com.library.menu.EventRegistrationMenu;
 import com.library.menu.MemberMenu;
 
 import java.util.Scanner;
@@ -21,6 +22,7 @@ public class LibraryApp {
             1. Book
             2. Member
             3. Author
+            4. Event Registration
             0. Exit
             -------------------""");
 
@@ -36,6 +38,7 @@ public class LibraryApp {
                 case 1 -> new BookMenu().displayMenu();
                 case 2 -> new MemberMenu().displayMenu();
                 case 3 -> new AuthorMenu().displayMenu();
+                case 4 -> new EventRegistrationMenu().displayMenu();
             }
         }
     }

@@ -27,4 +27,52 @@ public class EventRegistration {
 
     @CreationTimestamp
     private Instant registeredAt;
+
+    //Getters and Setters
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LibraryEvent getLibraryEvent() {
+        return libraryEvent;
+    }
+
+    public void setLibraryEvent(LibraryEvent libraryEvent) {
+        this.libraryEvent = libraryEvent;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    public AttendanceStatus getAttendanceStatus() {
+        return attendanceStatus;
+    }
+
+    public void setAttendanceStatus(AttendanceStatus attendanceStatus) {
+        this.attendanceStatus = attendanceStatus;
+    }
+
+    public Instant getRegisteredAt() {
+        return registeredAt;
+    }
+
+    public void setRegisteredAt(Instant registeredAt) {
+        this.registeredAt = registeredAt;
+    }
+
+    @Override
+    public String toString() {
+        return "EventRegistration [id=" + id + ", libraryEvent=" + libraryEvent + ", member=" + member
+                + ", attendanceStatus=" + attendanceStatus + ", registeredAt=" + registeredAt +"]";
+    }
 }
