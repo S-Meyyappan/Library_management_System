@@ -1,5 +1,6 @@
 package com.library.controller;
 
+import com.library.dto.EventRegistrationDto;
 import com.library.model.EventRegistration;
 import com.library.model.Member;
 import com.library.service.EventRegistrationService;
@@ -10,7 +11,7 @@ public class EventRegistrationController {
 
     EventRegistrationService eventRegistrationService = new EventRegistrationService();
 
-    public List<EventRegistration> findEventRegistrationsById(long eventId) {
+    public List<EventRegistrationDto> findEventRegistrationsById(long eventId) {
         return eventRegistrationService.findEventRegistrationsById(eventId);
     }
 

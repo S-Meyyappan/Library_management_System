@@ -2,6 +2,7 @@ package com.library.menu;
 
 import com.library.controller.AuthorController;
 import com.library.controller.EventRegistrationController;
+import com.library.dto.EventRegistrationDto;
 import com.library.model.Author;
 import com.library.model.EventRegistration;
 import com.library.model.Member;
@@ -36,7 +37,7 @@ public class EventRegistrationMenu {
                     System.out.println("----------------Find EventRegistrations----------------");
                     System.out.println("Enter Event Id: ");
                     long eventId = in.nextLong();
-                    List<EventRegistration> eventRegistrations = eventRegistrationController.findEventRegistrationsById(eventId);
+                    List<EventRegistrationDto> eventRegistrations = eventRegistrationController.findEventRegistrationsById(eventId);
                     if(eventRegistrations.isEmpty()){
                         System.out.println("No Event Registrations Found");
                     } else {
