@@ -32,8 +32,6 @@ public class BookDAOImpl implements BookDAO {
 
         try(Session session = sessionFactory.openSession()){
             transaction = session.beginTransaction();
-            // Add author first
-            session.persist(book.getAuthor());
             // Add book
             session.persist(book);
             transaction.commit();
@@ -103,9 +101,9 @@ public class BookDAOImpl implements BookDAO {
         try(Session session = sessionFactory.openSession()){
             //JPQL Implementation
             // Explicit Join Query
-            Query<Book> query = session.createQuery("select b"+
-                                                        "from Book b"+
-                                                        "join b.author a"+
+            Query<Book> query = session.createQuery("select b "+
+                                                        "from Book b "+
+                                                        "join b.author a "+
                                                         "where a.id = :authorId",Book.class);
             query.setParameter("authorId",authorId);
             List<Book> list = query.getResultList();

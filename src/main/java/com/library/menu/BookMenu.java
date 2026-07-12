@@ -1,5 +1,6 @@
 package com.library.menu;
 
+import com.library.controller.AuthorController;
 import com.library.controller.BookController;
 import com.library.enums.BookStatus;
 import com.library.enums.Genre;
@@ -16,6 +17,7 @@ public class BookMenu implements Menu {
         Scanner in = new Scanner(System.in);
 
         BookController bookController = new BookController();
+        AuthorController authorController = new AuthorController();
 
         System.out.println("-------------------Book Menu-------------------");
         while (true){
@@ -47,22 +49,24 @@ public class BookMenu implements Menu {
                     System.out.println("Choose genre:");
                     Arrays.stream(Genre.values()).forEach(System.out::println);
                     String genre = in.nextLine();
-                    System.out.println("Enter author name: ");
-                    String authorName = in.nextLine();
-                    System.out.println("Enter Author Country");
-                    String authorCountry = in.nextLine();
                     System.out.println("Enter publication year: ");
                     int publicationYear = in.nextInt();
+                    System.out.println("Enter author id: ");
+                    int authorId = in.nextInt();
 
-                    Author author = new Author();
-                    author.setName(authorName);
-                    author.setCountry(authorCountry);
+                    Author author = authorController.findAuthorById(authorId);
+                    if (author != null) {
+                        System.out.println("Author found: " + author);
+                    } else {
+                        System.out.println("Failed to add book : " + "Author not found");
+                        break;
+                    }
 
                     Book book = new Book();
                     book.setTitle(title);
                     book.setGenre(Genre.valueOf(genre));
-                    book.setAuthor(author);
                     book.setPublicationYear(publicationYear);
+                    book.setAuthor(author);
 
                     try {
                         book = bookController.addBook(book);
